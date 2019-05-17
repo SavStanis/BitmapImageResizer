@@ -17,6 +17,8 @@ image* BMPReader::readBMPFile(const char* pathToFile)
 	}
 	inputImage.read((char*)&newImage->header, sizeof(BMPHEAD)); 
 
+
+
 	int padding = 0;
 	if ((newImage->header.width * 3) % 4 != 0)
 		padding = 4 - (newImage->header.width * 3) % 4;
@@ -34,6 +36,6 @@ image* BMPReader::readBMPFile(const char* pathToFile)
 		for (int k = 0; k < padding; k++)
 			inputImage.read((char*)&tmpByte, sizeof(int8_t));
 	}
-
 	inputImage.close();
+	return newImage;
 }

@@ -1,8 +1,10 @@
 #pragma once
+#include "image.h"
+
 class BMPWriter
 {
 public:
 	BMPWriter();
-	~BMPWriter();
+	static void writeBMPFile(const char* pathToFile, image* imageToWrite);
 };
 
