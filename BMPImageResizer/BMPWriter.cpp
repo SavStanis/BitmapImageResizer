@@ -6,7 +6,7 @@ BMPWriter::BMPWriter() {}
 
 void BMPWriter::writeBMPFile(const char* pathToFile, image* imageToWrite)
 {
-	std::ofstream outputOfImage("outputBMPImage.bmp", std::ios::binary);
+	std::ofstream outputOfImage(pathToFile, std::ios::binary);
 
 	outputOfImage.write((char*)&imageToWrite->header, sizeof(BMPHEAD));
 
@@ -23,4 +23,5 @@ void BMPWriter::writeBMPFile(const char* pathToFile, image* imageToWrite)
 		for (int k = 0; k < padding; k++)
 			outputOfImage.write((char*)&paddingByte, sizeof(paddingByte));
 	}
+	outputOfImage.close();
 }
