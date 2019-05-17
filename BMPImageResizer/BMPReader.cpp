@@ -20,8 +20,8 @@ image* BMPReader::readBMPFile(const char* pathToFile)
 
 
 	int padding = 0;
-	if ((newImage->header.width * 3) % 4 != 0)
-		padding = 4 - (newImage->header.width * 3) % 4;
+	if ((newImage->header.width * sizeof(PIXELDATA)) % 4 != 0)
+		padding = 4 - (newImage->header.width * sizeof(PIXELDATA)) % 4;
 
 	newImage->pixelMatrix = new PIXELDATA*[newImage->header.depth];
 	for (int i = 0; i < newImage->header.depth; i++)
